@@ -2,6 +2,8 @@
 
 import { action2 } from "@/lib/features/auth-slice";
 import { AppDispatch } from "@/lib/store";
+import { useRouter } from "next/navigation";
+import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 
 export default function Home() {
@@ -13,6 +15,14 @@ export default function Home() {
   // const getTopics = (e: { title: string; description: string }[]) => {
   //   dispatch(setInitialTopics(e));
   // };
+
+  const router = useRouter();
+
+  useEffect(() => {
+    router.refresh();
+    router.push("topics");
+  }, []);
+
   return (
     <div>
       <button
