@@ -17,7 +17,7 @@ const TodoList = () => {
   useEffect(() => {
     const getData = async () => {
       try {
-        const response = await axios.get("http://localhost:3000/api/topics");
+        const response = await axios.get("/api/topics");
         dispatch(setInitialTopics(response?.data?.topics || []));
       } catch (error) {
         console.log(error, "fetched response");

@@ -18,9 +18,7 @@ export default function EditTopic({ params }: { params: any }) {
   useEffect(() => {
     const getData = async () => {
       try {
-        const response = await axios.get(
-          `http://localhost:3000/api/topics/${id}`
-        );
+        const response = await axios.get(`/api/topics/${id}`);
         setNewTitle(response?.data?.topic?.title || "");
         setNewDescription(response?.data?.topic?.description || "");
       } catch (error) {

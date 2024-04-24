@@ -8,8 +8,8 @@ import { useDispatch } from "react-redux";
 import { setInitialTopics } from "@/lib/features/topic-slice";
 
 const AddTopic = () => {
-  const [newTitle, setNewTitle] = useState<string>("title");
-  const [newDescription, setNewDescription] = useState<string>("description");
+  const [newTitle, setNewTitle] = useState<string>("");
+  const [newDescription, setNewDescription] = useState<string>("");
   const dispatch = useDispatch<AppDispatch>();
 
   const router = useRouter();
@@ -17,7 +17,7 @@ const AddTopic = () => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
-      const response = await axios.post(`http://localhost:3000/api/topics`, {
+      const response = await axios.post(`/api/topics`, {
         title: newTitle,
         description: newDescription,
       });
